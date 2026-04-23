@@ -1,12 +1,18 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-mutton text-cream py-12 border-t-4 border-saffron">
+    <footer className="bg-mutton text-cream py-8 border-t-4 border-saffron">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-serif font-bold mb-4 tracking-wider text-saffron">Mutton Raja</h2>
-        <p className="text-saffron mb-8 font-serif italic">Where Tradition Meets Taste!</p>
+        <div className="flex flex-col items-center justify-center mb-4">
+          <div className="w-16 h-16 relative mb-2">
+            <Image src="/images/logo.png" alt="Mutton Raja Logo" fill className="object-contain" />
+          </div>
+          <h2 className="text-3xl font-serif font-bold tracking-wider text-saffron">Mutton Raja</h2>
+        </div>
+        <p className="text-saffron mb-6 font-serif italic">Where Tradition Meets Taste!</p>
         
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
           <div className="flex space-x-6">

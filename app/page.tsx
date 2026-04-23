@@ -122,7 +122,7 @@ export default function Home() {
             {/* Image Grid / Carousel Concept */}
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg col-span-2">
-                <Image src="/images/restaurant-interior.png" alt="Mutton Raja Interior" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/restuarant-interior.png" alt="Mutton Raja Interior" fill className="object-cover hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="relative h-48 rounded-2xl overflow-hidden shadow-md">
                 <Image src="/images/restaurant view.png" alt="Mutton Raja Exterior" fill className="object-cover hover:scale-105 transition-transform duration-700" />
@@ -160,37 +160,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact & Map Section */}
-      <section id="contact" className="py-24 bg-cream">
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-cream border-t border-stone-100">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-4xl font-serif font-bold text-mutton mb-4">{t('Contact')}</h2>
-          <div className="w-24 h-1 bg-saffron mx-auto mb-12"></div>
+          <div className="w-24 h-1 bg-saffron mx-auto mb-10"></div>
           
-          <div className="bg-white p-4 rounded-2xl shadow-xl border border-stone-100 overflow-hidden">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3743.04561085002!2d85.7766!3d20.2572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a7a3b9692f03%3A0x8e8bb3380b2a74c3!2sTata%20Ariana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style={{ border: 0, borderRadius: '0.75rem' }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-            
-            <div className="mt-8 mb-4 grid md:grid-cols-2 gap-6 text-left px-4">
-              <div>
-                <h4 className="font-bold text-mutton text-lg mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100">
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div className="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                <h4 className="font-bold text-mutton text-xl mb-3 flex items-center gap-2">
+                  <svg className="w-6 h-6 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                   Visit Us
                 </h4>
-                <p className="text-gray-600 ml-7">Near Tata Ariana Main Gate,<br/>Kalinga Nagar, Bhubaneswar, 752054</p>
+                <p className="text-gray-700 ml-8 text-lg">Near Tata Ariana Main Gate,<br/>Kalinga Nagar, Bhubaneswar, 752054</p>
               </div>
-              <div>
-                <h4 className="font-bold text-mutton text-lg mb-2 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div className="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                <h4 className="font-bold text-mutton text-xl mb-3 flex items-center gap-2">
+                  <svg className="w-6 h-6 text-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   Hours
                 </h4>
-                <p className="text-gray-600 ml-7">Lunch: 12:00 Noon - 4:30 PM<br/>Dinner: 6:30 PM - 11:00 PM</p>
+                <p className="text-gray-700 ml-8 text-lg">Lunch: 12:00 Noon - 4:30 PM<br/>Dinner: 6:30 PM - 11:00 PM</p>
               </div>
             </div>
           </div>

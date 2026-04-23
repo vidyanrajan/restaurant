@@ -10,10 +10,10 @@ export default function Header() {
     <header className="fixed w-full z-50 transition-all duration-300 bg-mutton/95 backdrop-blur-sm text-cream shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-saffron/50">
-            <Image src="/images/logo.png" alt="Mutton Raja Logo" fill className="object-cover" />
+          <div className="w-16 h-16 relative">
+            <Image src="/images/logo.png" alt="Mutton Raja Logo" fill className="object-contain" />
           </div>
-          <div className="text-3xl font-serif font-bold tracking-wide text-saffron drop-shadow-md">
+          <div className="text-3xl font-serif font-bold tracking-wide text-saffron drop-shadow-md hidden sm:block">
             Mutton Raja
           </div>
         </Link>
