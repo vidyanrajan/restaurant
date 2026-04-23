@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import Carousel from "@/components/Carousel";
 
 type MenuItem = {
   name: string;
@@ -97,8 +98,7 @@ export default function MenuPage() {
                 {category.category}
               </h2>
               
-              {/* Horizontal Scroll Carousel */}
-              <div className="flex overflow-x-auto pb-6 gap-6 snap-x snap-mandatory">
+              <Carousel>
                 {category.items.map((item, itemIdx) => (
                   <div key={itemIdx} className="min-w-[280px] md:min-w-[320px] max-w-[320px] bg-white rounded-xl shadow-sm hover:shadow-md border border-stone-100 overflow-hidden flex flex-col group snap-start flex-shrink-0 transition-all">
                     {/* Image Block */}
@@ -135,7 +135,7 @@ export default function MenuPage() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </Carousel>
             </section>
           ))}
         </div>
