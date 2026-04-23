@@ -98,7 +98,7 @@ export default function MenuPage() {
               </h2>
               
               {/* Horizontal Scroll Carousel */}
-              <div className="flex overflow-x-auto pb-6 gap-6 snap-x snap-mandatory hide-scrollbar">
+              <div className="flex overflow-x-auto pb-6 gap-6 snap-x snap-mandatory">
                 {category.items.map((item, itemIdx) => (
                   <div key={itemIdx} className="min-w-[280px] md:min-w-[320px] max-w-[320px] bg-white rounded-xl shadow-sm hover:shadow-md border border-stone-100 overflow-hidden flex flex-col group snap-start flex-shrink-0 transition-all">
                     {/* Image Block */}
@@ -140,15 +140,6 @@ export default function MenuPage() {
           ))}
         </div>
       </div>
-      <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </main>
   );
 }
