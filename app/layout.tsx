@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, Lora } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Providers } from "@/components/Providers";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -27,7 +30,15 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-amber-50 text-stone-900">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-amber-50 text-stone-900">
+        <Providers>
+          <Header />
+          <div className="flex-grow flex flex-col">
+            {children}
+          </div>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }
