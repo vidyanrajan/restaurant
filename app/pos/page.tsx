@@ -74,9 +74,57 @@ export default function POSDashboard() {
 
   const submitOrder = async () => {
     if (!selectedTable || ticket.length === 0) return;
-    alert(`Order submitted for Table ${selectedTable.table_number}! (Database insert pending integration)`);
+    
+    // Calculate total
+    const total = ticket.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // Get current user ID (waiter)
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    // 1. Insert into orders table
+    const { data: orderData, error: orderError } = await supabase
+      .from('orders')
+      .insert({
+        table_id: selectedTable.id,
+        waiter_id: user?.id,
+        total_amount: total,
+        status: 'pending'
+      })
+      .select()
+      .single();
+
+    if (orderError || !orderData) {
+      alert('Error creating order: ' + orderError?.message);
+      return;
+    }
+
+    // 2. Insert into order_items table
+    const orderItems = ticket.map(item => ({
+      order_id: orderData.id,
+      menu_item_id: item.id,
+      quantity: item.quantity,
+      subtotal: item.price * item.quantity
+    }));
+
+    const { error: itemsError } = await supabase
+      .from('order_items')
+      .insert(orderItems);
+
+    if (itemsError) {
+      alert('Error adding items: ' + itemsError.message);
+      return;
+    }
+
+    // 3. Update table status to occupied
+    await supabase
+      .from('restaurant_tables')
+      .update({ status: 'occupied' })
+      .eq('id', selectedTable.id);
+
+    alert(`Order #${orderData.id.split('-')[0]} submitted successfully for Table ${selectedTable.table_number}!`);
     setTicket([]);
     setSelectedTable(null);
+    fetchData(); // Refresh tables to show occupied status
   };
 
   const ticketTotal = ticket.reduce((sum, item) => sum + (item.price * item.quantity), 0);
